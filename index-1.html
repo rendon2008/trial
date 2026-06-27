@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PitLane Eats — Precision-Crafted Food</title>
+  <meta name="description" content="Premium restaurant with Formula 1 speed aesthetics. Fast service, fresh ingredients, unforgettable taste." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════
+       LOADING SCREEN
+  ═══════════════════════════════════════ -->
+  <div id="loader" class="loader" aria-hidden="true">
+    <div class="loader__track">
+      <div class="loader__bar"></div>
+    </div>
+    <div class="loader__logo">
+      <span class="loader__brand">PITLANE</span>
+      <span class="loader__sub">EATS</span>
+    </div>
+    <div class="loader__rpm">
+      <div class="loader__rpm-ring"></div>
+      <div class="loader__rpm-needle"></div>
+      <span class="loader__rpm-label">LOADING</span>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       CURSOR GLOW
+  ═══════════════════════════════════════ -->
+  <div id="cursor-glow" class="cursor-glow" aria-hidden="true"></div>
+  <div id="cursor-dot" class="cursor-dot" aria-hidden="true"></div>
+
+  <!-- ═══════════════════════════════════════
+       NAVBAR
+  ═══════════════════════════════════════ -->
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="navbar__inner">
+      <a href="#home" class="navbar__logo" aria-label="PitLane Eats home">
+        <span class="navbar__logo-main">PITLANE</span>
+        <span class="navbar__logo-accent">EATS</span>
+      </a>
+
+      <ul class="navbar__links" role="list">
+        <li><a href="#home" class="navbar__link" data-label="Home">Home</a></li>
+        <li><a href="#menu" class="navbar__link" data-label="Menu">Menu</a></li>
+        <li><a href="#bestsellers" class="navbar__link" data-label="Best Sellers">Best Sellers</a></li>
+        <li><a href="#reviews" class="navbar__link" data-label="Reviews">Reviews</a></li>
+        <li><a href="#contact" class="navbar__link" data-label="Contact">Contact</a></li>
+      </ul>
+
+      <a href="#menu" class="btn btn--nav">Order Now</a>
+
+      <!-- Mobile hamburger -->
+      <button class="navbar__hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <!-- Mobile menu -->
+    <div class="navbar__mobile" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+      <ul role="list">
+        <li><a href="#home" class="navbar__mobile-link">Home</a></li>
+        <li><a href="#menu" class="navbar__mobile-link">Menu</a></li>
+        <li><a href="#bestsellers" class="navbar__mobile-link">Best Sellers</a></li>
+        <li><a href="#reviews" class="navbar__mobile-link">Reviews</a></li>
+        <li><a href="#contact" class="navbar__mobile-link">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════
+       SECTION 1 — HERO
+  ═══════════════════════════════════════ -->
+  <section class="hero" id="home" aria-labelledby="hero-title">
+
+    <!-- Animated canvas background -->
+    <canvas id="hero-canvas" class="hero__canvas" aria-hidden="true"></canvas>
+
+    <!-- Racing telemetry SVG line — signature element -->
+    <svg class="hero__telemetry" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+      <path id="telemetry-path" class="hero__telemetry-line"
+        d="M0,60 L80,60 L100,20 L120,90 L140,30 L160,75 L180,45 L220,60 L280,60 L300,15 L320,85 L350,40 L380,70 L420,60 L500,60 L520,25 L540,80 L560,35 L590,65 L620,55 L680,60 L720,60 L750,20 L770,90 L800,40 L830,70 L860,55 L920,60 L980,60 L1000,30 L1020,80 L1050,45 L1080,65 L1120,60 L1200,60 L1220,25 L1240,85 L1260,40 L1300,60 L1440,60"
+        fill="none" stroke="#E10600" stroke-width="2" stroke-dasharray="3000" stroke-dashoffset="3000"
+      />
+    </svg>
+
+    <!-- Speed lines -->
+    <div class="hero__speed-lines" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+
+    <!-- Racing stripe top -->
+    <div class="hero__stripe" aria-hidden="true"></div>
+
+    <div class="hero__content">
+      <div class="hero__text">
+        <p class="hero__eyebrow reveal-up">Precision. Speed. Flavor.</p>
+        <h1 class="hero__title reveal-up" id="hero-title">
+          FUEL YOUR<br/>
+          <span class="hero__title-accent">PASSION</span>
+        </h1>
+        <p class="hero__subtitle reveal-up">
+          Restaurant-grade food, pit-stop fast.<br/>
+          Every dish engineered to perfection.
+        </p>
+        <div class="hero__actions reveal-up">
+          <a href="#menu" class="btn btn--primary">Order Now</a>
+          <a href="#bestsellers" class="btn btn--ghost">View Best Sellers</a>
+        </div>
+
+        <!-- Live stats strip -->
+        <div class="hero__stats reveal-up">
+          <div class="hero__stat">
+            <span class="hero__stat-num" data-count="98">0</span>
+            <span class="hero__stat-label">%<br/>Fresh</span>
+          </div>
+          <div class="hero__stat-divider" aria-hidden="true"></div>
+          <div class="hero__stat">
+            <span class="hero__stat-num" data-count="12">0</span>
+            <span class="hero__stat-label">min<br/>Delivery</span>
+          </div>
+          <div class="hero__stat-divider" aria-hidden="true"></div>
+          <div class="hero__stat">
+            <span class="hero__stat-num" data-count="4800">0</span>
+            <span class="hero__stat-label">+<br/>Reviews</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero food image -->
+      <div class="hero__image-wrap reveal-right">
+        <div class="hero__image-glow" aria-hidden="true"></div>
+        <div class="hero__image-ring" aria-hidden="true"></div>
+        <img src="images/hero-burger.png" alt="Signature double smash burger — PitLane's most iconic dish" class="hero__image float-anim" />
+        <div class="hero__image-badge" aria-label="Best seller">
+          <span>BEST</span><br/><span>SELLER</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="hero__scroll" aria-label="Scroll down">
+      <span class="hero__scroll-label">SCROLL</span>
+      <div class="hero__scroll-line"><div class="hero__scroll-dot"></div></div>
+    </div>
+
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       SECTION 2 — WHY CHOOSE US
+  ═══════════════════════════════════════ -->
+  <section class="why" id="why" aria-labelledby="why-title">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <p class="section-eyebrow">The Advantage</p>
+        <h2 class="section-title" id="why-title">WHY PITLANE?</h2>
+        <div class="section-stripe" aria-hidden="true"></div>
+      </div>
+
+      <div class="why__grid">
+        <div class="why__card card-tilt reveal-up" style="--delay:0s">
+          <div class="why__card-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="2"/>
+              <path d="M24 14V24L30 30" stroke="#E10600" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="why__card-title">Pit-Stop Fast</h3>
+          <p class="why__card-desc">Your food arrives before you finish scrolling. Zero compromise on speed.</p>
+          <div class="why__card-tag">12 min avg.</div>
+        </div>
+
+        <div class="why__card card-tilt reveal-up" style="--delay:0.1s">
+          <div class="why__card-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M24 6C14.06 6 6 14.06 6 24s8.06 18 18 18 18-8.06 18-18S33.94 6 24 6z" stroke="currentColor" stroke-width="2"/>
+              <path d="M16 24l5 5 11-11" stroke="#E10600" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 class="why__card-title">Always Fresh</h3>
+          <p class="why__card-desc">Sourced daily, stored cold, cooked to order. No shortcuts, ever.</p>
+          <div class="why__card-tag">Farm to table</div>
+        </div>
+
+        <div class="why__card card-tilt reveal-up" style="--delay:0.2s">
+          <div class="why__card-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="24,4 29,18 44,18 32,27 37,42 24,33 11,42 16,27 4,18 19,18" stroke="currentColor" stroke-width="2" fill="none"/>
+              <polygon points="24,12 27,21 36,21 29,27 32,36 24,30 16,36 19,27 12,21 21,21" stroke="#E10600" stroke-width="1.5" fill="none"/>
+            </svg>
+          </div>
+          <h3 class="why__card-title">Premium Quality</h3>
+          <p class="why__card-desc">Chef-crafted recipes with competition-grade ingredients in every bite.</p>
+          <div class="why__card-tag">5-star rated</div>
+        </div>
+
+        <div class="why__card card-tilt reveal-up" style="--delay:0.3s">
+          <div class="why__card-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="6" y="20" width="36" height="22" rx="3" stroke="currentColor" stroke-width="2"/>
+              <path d="M16 20V14a8 8 0 1116 0v6" stroke="currentColor" stroke-width="2"/>
+              <circle cx="24" cy="31" r="3" fill="#E10600"/>
+            </svg>
+          </div>
+          <h3 class="why__card-title">Unbeatable Price</h3>
+          <p class="why__card-desc">Premium taste, not premium price tags. Every peso delivers maximum value.</p>
+          <div class="why__card-tag">Value champion</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       SECTION 3 — FEATURED MENU
+  ═══════════════════════════════════════ -->
+  <section class="menu" id="menu" aria-labelledby="menu-title">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <p class="section-eyebrow">The Grid</p>
+        <h2 class="section-title" id="menu-title">OUR MENU</h2>
+        <div class="section-stripe" aria-hidden="true"></div>
+      </div>
+
+      <!-- Category Filter -->
+      <div class="menu__filters reveal-up" role="tablist" aria-label="Menu categories">
+        <button class="menu__filter active" role="tab" aria-selected="true" data-filter="all">All</button>
+        <button class="menu__filter" role="tab" aria-selected="false" data-filter="mains">Mains</button>
+        <button class="menu__filter" role="tab" aria-selected="false" data-filter="sides">Sides</button>
+        <button class="menu__filter" role="tab" aria-selected="false" data-filter="drinks">Drinks</button>
+        <button class="menu__filter" role="tab" aria-selected="false" data-filter="desserts">Desserts</button>
+      </div>
+
+      <div class="menu__grid" id="menu-grid">
+
+        <!-- BURGERS -->
+        <article class="menu__card card-tilt reveal-up" data-category="mains" style="--delay:0s" aria-label="Smash Stack Burger">
+          <div class="menu__card-image-wrap">
+            <img src="images/burger.png" alt="Smash Stack Burger — double smash patties with special sauce" class="menu__card-img float-anim" loading="lazy" />
+            <div class="menu__card-badge">🍔 Burger</div>
+          </div>
+          <div class="menu__card-body">
+            <h3 class="menu__card-name">Smash Stack</h3>
+            <p class="menu__card-desc">Double smash patties, caramelized onions, aged cheddar, house sauce on a brioche bun.</p>
+            <div class="menu__card-footer">
+              <span class="menu__card-price">₱289</span>
+              <button class="btn btn--sm">Add to Order</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- PIZZA -->
+        <article class="menu__card card-tilt reveal-up" data-category="mains" style="--delay:0.1s" aria-label="Inferno Margherita Pizza">
+          <div class="menu__card-image-wrap">
+            <img src="images/pizza.png" alt="Inferno Margherita Pizza — wood-fired with fresh basil" class="menu__card-img float-anim" loading="lazy" />
+            <div class="menu__card-badge">🍕 Pizza</div>
+          </div>
+          <div class="menu__card-body">
+            <h3 class="menu__card-name">Inferno Margherita</h3>
+            <p class="menu__card-desc">Wood-fired crust, San Marzano tomato, fresh fior di latte, basil, extra virgin olive oil.</p>
+            <div class="menu__card-footer">
+              <span class="menu__card-price">₱349</span>
+              <button class="btn btn--sm">Add to Order</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- FRIED CHICKEN -->
+        <article class="menu__card card-tilt reveal-up" data-category="mains" style="--delay:0.2s" aria-label="Grid Iron Fried Chicken">
+          <div class="menu__card-image-wrap">
+            <img src="images/chicken.png" alt="Grid Iron Fried Chicken — double-battered crispy chicken" class="menu__card-img float-anim" loading="lazy" />
+            <div class="menu__card-badge">🍗 Chicken</div>
+          </div>
+          <div class="menu__card-body">
+            <h3 class="menu__card-name">Grid Iron Crispy</h3>
+            <p class="menu__card-desc">Double-battered thighs, 24-hour brine, house spice blend — dangerously crunchy.</p>
+            <div class="menu__card-footer">
+              <span class="menu__card-price">₱259</span>
+              <button class="btn btn--sm">Add to Order</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- FRENCH FRIES -->
+        <article class="menu__card card-tilt reveal-up" data-category="sides" style="--delay:0.3s" aria-label="Podium Fries">
+          <div class="menu__card-image-wrap">
+            <img src="images/fries.png" alt="Podium Fries — twice-fried with truffle finish" class="menu__card-img float-anim" loading="lazy" />
+            <div class="menu__card-badge">🍟 Fries</div>
+          </div>
+          <div class="menu__card-body">
+            <h3 class="menu__card-name">Podium Fries</h3>
+            <p class="menu__card-desc">Twice-fried Russet batons, truffle finish, Parmesan snow, house dipping sauce.</p>
+            <div class="menu__card-footer">
+              <span class="menu__card-price">₱149</span>
+              <button class="btn btn--sm">Add to Order</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- PASTA -->
+        <article class="menu__card card-tilt reveal-up" data-category="mains" style="--delay:0.4s" aria-label="Apex Carbonara Pasta">
+          <div class="menu__card-image-wrap">
+            <img src="images/pasta.png" alt="Apex Carbonara — Roman-style pasta with guanciale" class="menu__card-img float-anim" loading="lazy" />
+            <div class="menu__card-badge">🍝 Pasta</div>
+          </div>
+          <div class="menu__card-body">
+            <h3 class="menu__card-name">Apex Carbonara</h3>
+            <p class="menu__card-desc">Roman-authentic egg yolk sauce, guanciale, Pecorino Romano, no cream — ever.</p>
+            <div class="menu__card-footer">
+              <span class="menu__card-price">₱319</span>
+              <button class="btn btn--sm">Add to Order</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- DESSERTS -->
+        <article class="menu__card card-tilt reveal-up" data-category="desserts" style="--delay:0.5s" aria-label="Checkered Flag Dessert">
+          <div class="menu__card-image-wrap">
+            <img src="images/dessert.png" alt="Checkered Flag — dark chocolate lava cake" class="menu__card-img float-anim" loading="lazy" />
+            <div class="menu__card-badge">🍫 Dessert</div>
+          </div>
+          <div class="menu__card-body">
+            <h3 class="menu__card-name">Checkered Flag</h3>
+            <p class="menu__card-desc">Dark chocolate lava cake, molten center, vanilla bean gelato, cocoa tuile.</p>
+            <div class="menu__card-footer">
+              <span class="menu__card-price">₱199</span>
+              <button class="btn btn--sm">Add to Order</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- SOFT DRINKS -->
+        <article class="menu__card card-tilt reveal-up" data-category="drinks" style="--delay:0.0s" aria-label="Hydration Pack soft drinks">
+          <div class="menu__card-image-wrap">
+            <img src="images/drink.png" alt="Hydration Pack — chilled imported soft drinks" class="menu__card-img float-anim" loading="lazy" />
+            <div class="menu__card-badge">🥤 Drinks</div>
+          </div>
+          <div class="menu__card-body">
+            <h3 class="menu__card-name">Hydration Pack</h3>
+            <p class="menu__card-desc">Chilled imported sodas, freshly squeezed lemonades, and iced teas. Always ice-cold.</p>
+            <div class="menu__card-footer">
+              <span class="menu__card-price">₱89</span>
+              <button class="btn btn--sm">Add to Order</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- COFFEE -->
+        <article class="menu__card card-tilt reveal-up" data-category="drinks" style="--delay:0.1s" aria-label="Pit Crew Coffee">
+          <div class="menu__card-image-wrap">
+            <img src="images/coffee.png" alt="Pit Crew Coffee — specialty espresso drinks" class="menu__card-img float-anim" loading="lazy" />
+            <div class="menu__card-badge">☕ Coffee</div>
+          </div>
+          <div class="menu__card-body">
+            <h3 class="menu__card-name">Pit Crew Brew</h3>
+            <p class="menu__card-desc">Single-origin espresso, cold brew, cortados and oat lattes. Fuel for champions.</p>
+            <div class="menu__card-footer">
+              <span class="menu__card-price">₱129</span>
+              <button class="btn btn--sm">Add to Order</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- MILKSHAKES -->
+        <article class="menu__card card-tilt reveal-up" data-category="drinks" style="--delay:0.2s" aria-label="Turbo Shake milkshakes">
+          <div class="menu__card-image-wrap">
+            <img src="images/milkshake.png" alt="Turbo Shake — thick premium milkshakes" class="menu__card-img float-anim" loading="lazy" />
+            <div class="menu__card-badge">🥛 Shake</div>
+          </div>
+          <div class="menu__card-body">
+            <h3 class="menu__card-name">Turbo Shake</h3>
+            <p class="menu__card-desc">Thick hand-spun shakes — strawberry, dark chocolate, salted caramel, or vanilla bean.</p>
+            <div class="menu__card-footer">
+              <span class="menu__card-price">₱179</span>
+              <button class="btn btn--sm">Add to Order</button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       SECTION 4 — BEST SELLERS
+  ═══════════════════════════════════════ -->
+  <section class="bestsellers" id="bestsellers" aria-labelledby="bs-title">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <p class="section-eyebrow">Front Row</p>
+        <h2 class="section-title" id="bs-title">BEST SELLERS</h2>
+        <div class="section-stripe" aria-hidden="true"></div>
+      </div>
+
+      <div class="bs__list">
+
+        <!-- FEATURED 1 -->
+        <div class="bs__item reveal-left">
+          <div class="bs__item-image-wrap">
+            <div class="bs__item-glow" aria-hidden="true"></div>
+            <img src="images/burger.png" alt="Smash Stack Burger — #1 bestseller" class="bs__item-img float-anim" loading="lazy" />
+            <div class="bs__item-rank" aria-label="Rank 1">#1</div>
+          </div>
+          <div class="bs__item-content">
+            <div class="bs__item-meta">
+              <span class="bs__item-category">Signature Burger</span>
+              <span class="bs__item-orders">2,400+ orders this week</span>
+            </div>
+            <h3 class="bs__item-name">Smash Stack</h3>
+            <p class="bs__item-desc">The crown jewel. Our signature double smash patty burger has been our bestseller since day one. Two 4oz beef patties, pressed thin and seared hard on a screaming hot iron. Caramelized crust, melted aged cheddar, pickles, house-made special sauce on a toasted brioche bun. Non-negotiable.</p>
+            <div class="bs__item-footer">
+              <span class="bs__item-price">₱289</span>
+              <div class="bs__item-rating" aria-label="Rating: 4.9 out of 5">
+                <span class="stars" aria-hidden="true">★★★★★</span>
+                <span>4.9</span>
+              </div>
+              <button class="btn btn--primary">Order Now</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- FEATURED 2 -->
+        <div class="bs__item bs__item--reverse reveal-right">
+          <div class="bs__item-image-wrap">
+            <div class="bs__item-glow" aria-hidden="true"></div>
+            <img src="images/pizza.png" alt="Inferno Margherita Pizza — #2 bestseller" class="bs__item-img float-anim" loading="lazy" />
+            <div class="bs__item-rank" aria-label="Rank 2">#2</div>
+          </div>
+          <div class="bs__item-content">
+            <div class="bs__item-meta">
+              <span class="bs__item-category">Wood-Fired Pizza</span>
+              <span class="bs__item-orders">1,800+ orders this week</span>
+            </div>
+            <h3 class="bs__item-name">Inferno Margherita</h3>
+            <p class="bs__item-desc">Fired at 900°F for 90 seconds. That's the Inferno method. Leopard-spotted crust, bubbling fior di latte, whole San Marzano tomatoes crushed by hand, fresh basil added post-fire. A Neapolitan tradition rebuilt with F1-level precision. Simple. Unforgettable.</p>
+            <div class="bs__item-footer">
+              <span class="bs__item-price">₱349</span>
+              <div class="bs__item-rating" aria-label="Rating: 4.8 out of 5">
+                <span class="stars" aria-hidden="true">★★★★★</span>
+                <span>4.8</span>
+              </div>
+              <button class="btn btn--primary">Order Now</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- FEATURED 3 -->
+        <div class="bs__item reveal-left">
+          <div class="bs__item-image-wrap">
+            <div class="bs__item-glow" aria-hidden="true"></div>
+            <img src="images/chicken.png" alt="Grid Iron Fried Chicken — #3 bestseller" class="bs__item-img float-anim" loading="lazy" />
+            <div class="bs__item-rank" aria-label="Rank 3">#3</div>
+          </div>
+          <div class="bs__item-content">
+            <div class="bs__item-meta">
+              <span class="bs__item-category">Crispy Fried Chicken</span>
+              <span class="bs__item-orders">1,200+ orders this week</span>
+            </div>
+            <h3 class="bs__item-name">Grid Iron Crispy</h3>
+            <p class="bs__item-desc">The crunch is the point. Brined for 24 hours in buttermilk and spices. Double-dredged through seasoned flour. Fried in clean oil at exact temperature. The result: an audible shatter with every bite, juicy meat all the way through. This is how fried chicken is supposed to feel.</p>
+            <div class="bs__item-footer">
+              <span class="bs__item-price">₱259</span>
+              <div class="bs__item-rating" aria-label="Rating: 4.7 out of 5">
+                <span class="stars" aria-hidden="true">★★★★★</span>
+                <span>4.7</span>
+              </div>
+              <button class="btn btn--primary">Order Now</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       SECTION 5 — CUSTOMER REVIEWS
+  ═══════════════════════════════════════ -->
+  <section class="reviews" id="reviews" aria-labelledby="reviews-title">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <p class="section-eyebrow">The Paddock</p>
+        <h2 class="section-title" id="reviews-title">WHAT THEY SAY</h2>
+        <div class="section-stripe" aria-hidden="true"></div>
+      </div>
+
+      <div class="reviews__track-wrap">
+        <div class="reviews__track" id="reviews-track" aria-label="Customer reviews carousel">
+
+          <article class="reviews__card card-tilt" aria-label="Review by Marco V.">
+            <div class="reviews__card-top">
+              <div class="reviews__avatar" aria-hidden="true">MV</div>
+              <div class="reviews__info">
+                <p class="reviews__name">Marco V.</p>
+                <div class="reviews__stars" aria-label="5 star rating">★★★★★</div>
+              </div>
+              <span class="reviews__date">June 2026</span>
+            </div>
+            <blockquote class="reviews__quote">
+              "Smash Stack hit different. I've had burgers across Southeast Asia and this one sits comfortably in the top three. The crust on that patty is unreal."
+            </blockquote>
+            <p class="reviews__dish">📌 Smash Stack Burger</p>
+          </article>
+
+          <article class="reviews__card card-tilt" aria-label="Review by Lia M.">
+            <div class="reviews__card-top">
+              <div class="reviews__avatar" aria-hidden="true">LM</div>
+              <div class="reviews__info">
+                <p class="reviews__name">Lia M.</p>
+                <div class="reviews__stars" aria-label="5 star rating">★★★★★</div>
+              </div>
+              <span class="reviews__date">May 2026</span>
+            </div>
+            <blockquote class="reviews__quote">
+              "Ordered the Inferno Margherita and it arrived in 11 minutes. Still had that leopard-char crunch on delivery. They really figured out the packaging."
+            </blockquote>
+            <p class="reviews__dish">📌 Inferno Margherita</p>
+          </article>
+
+          <article class="reviews__card card-tilt" aria-label="Review by Jace R.">
+            <div class="reviews__card-top">
+              <div class="reviews__avatar" aria-hidden="true">JR</div>
+              <div class="reviews__info">
+                <p class="reviews__name">Jace R.</p>
+                <div class="reviews__stars" aria-label="5 star rating">★★★★★</div>
+              </div>
+              <span class="reviews__date">May 2026</span>
+            </div>
+            <blockquote class="reviews__quote">
+              "Best truffle fries I've had at this price point. Period. The Pit Brew espresso was incredible too. I ordered three times in a week."
+            </blockquote>
+            <p class="reviews__dish">📌 Podium Fries + Pit Crew Brew</p>
+          </article>
+
+          <article class="reviews__card card-tilt" aria-label="Review by Anya S.">
+            <div class="reviews__card-top">
+              <div class="reviews__avatar" aria-hidden="true">AS</div>
+              <div class="reviews__info">
+                <p class="reviews__name">Anya S.</p>
+                <div class="reviews__stars" aria-label="4 star rating">★★★★☆</div>
+              </div>
+              <span class="reviews__date">April 2026</span>
+            </div>
+            <blockquote class="reviews__quote">
+              "The Checkered Flag lava cake. I thought it was a gimmick. It absolutely is not. That molten center with the vanilla gelato — nothing compares."
+            </blockquote>
+            <p class="reviews__dish">📌 Checkered Flag Dessert</p>
+          </article>
+
+          <article class="reviews__card card-tilt" aria-label="Review by Ren D.">
+            <div class="reviews__card-top">
+              <div class="reviews__avatar" aria-hidden="true">RD</div>
+              <div class="reviews__info">
+                <p class="reviews__name">Ren D.</p>
+                <div class="reviews__stars" aria-label="5 star rating">★★★★★</div>
+              </div>
+              <span class="reviews__date">April 2026</span>
+            </div>
+            <blockquote class="reviews__quote">
+              "The Apex Carbonara is criminally underrated on this menu. Silky, no cream, actual guanciale. Roman technique, PitLane efficiency. Unmatched."
+            </blockquote>
+            <p class="reviews__dish">📌 Apex Carbonara</p>
+          </article>
+
+          <article class="reviews__card card-tilt" aria-label="Review by Carlos T.">
+            <div class="reviews__card-top">
+              <div class="reviews__avatar" aria-hidden="true">CT</div>
+              <div class="reviews__info">
+                <p class="reviews__name">Carlos T.</p>
+                <div class="reviews__stars" aria-label="5 star rating">★★★★★</div>
+              </div>
+              <span class="reviews__date">March 2026</span>
+            </div>
+            <blockquote class="reviews__quote">
+              "Turbo Shake salted caramel is thick enough to stand a spoon in. That's the standard I use. PitLane clears it easily. Already coming back this weekend."
+            </blockquote>
+            <p class="reviews__dish">📌 Turbo Shake</p>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- Review nav dots -->
+      <div class="reviews__dots" role="tablist" aria-label="Review navigation">
+        <button class="reviews__dot active" role="tab" aria-selected="true" data-index="0" aria-label="Review group 1"></button>
+        <button class="reviews__dot" role="tab" aria-selected="false" data-index="1" aria-label="Review group 2"></button>
+        <button class="reviews__dot" role="tab" aria-selected="false" data-index="2" aria-label="Review group 3"></button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════ -->
+  <footer class="footer" id="contact" role="contentinfo">
+    <div class="footer__racing-line" aria-hidden="true"></div>
+
+    <div class="container">
+      <div class="footer__grid">
+
+        <!-- Brand col -->
+        <div class="footer__brand">
+          <a href="#home" class="footer__logo" aria-label="PitLane Eats">
+            <span>PITLANE</span><span class="footer__logo-accent">EATS</span>
+          </a>
+          <p class="footer__tagline">Precision-crafted food.<br/>Pit-stop fast delivery.</p>
+          <div class="footer__social" aria-label="Social media links">
+            <!-- Instagram -->
+            <a href="#" class="footer__social-link" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <circle cx="12" cy="12" r="4"/>
+                <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
+              </svg>
+            </a>
+            <!-- TikTok -->
+            <a href="#" class="footer__social-link" aria-label="TikTok">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V9.03a8.16 8.16 0 004.77 1.52V7.12a4.85 4.85 0 01-1-.43z"/>
+              </svg>
+            </a>
+            <!-- Facebook -->
+            <a href="#" class="footer__social-link" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+              </svg>
+            </a>
+            <!-- X / Twitter -->
+            <a href="#" class="footer__social-link" aria-label="X (Twitter)">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick links -->
+        <nav class="footer__nav" aria-label="Footer navigation">
+          <h4 class="footer__heading">Navigation</h4>
+          <ul role="list">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#bestsellers">Best Sellers</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+
+        <!-- Menu links -->
+        <nav class="footer__nav" aria-label="Menu categories">
+          <h4 class="footer__heading">Menu</h4>
+          <ul role="list">
+            <li><a href="#menu">Burgers</a></li>
+            <li><a href="#menu">Pizza</a></li>
+            <li><a href="#menu">Fried Chicken</a></li>
+            <li><a href="#menu">Pasta</a></li>
+            <li><a href="#menu">Desserts</a></li>
+            <li><a href="#menu">Drinks</a></li>
+          </ul>
+        </nav>
+
+        <!-- Contact -->
+        <address class="footer__contact">
+          <h4 class="footer__heading">Contact</h4>
+          <ul role="list">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>Bonifacio Global City,<br/>Metro Manila, PH</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 010 2.18a2 2 0 012-2.18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 13.9v3z"/></svg>
+              <a href="tel:+639001234567">+63 900 123 4567</a>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <a href="mailto:order@pitlaneeats.ph">order@pitlaneeats.ph</a>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+              <span>Daily: 10:00 AM – 11:00 PM</span>
+            </li>
+          </ul>
+        </address>
+
+      </div>
+
+      <div class="footer__bottom">
+        <p>&copy; 2026 PitLane Eats. All rights reserved.</p>
+        <p class="footer__legal">
+          <a href="#">Privacy Policy</a>
+          <span aria-hidden="true">·</span>
+          <a href="#">Terms</a>
+          <span aria-hidden="true">·</span>
+          <a href="#">Cookies</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
